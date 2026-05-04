@@ -1,6 +1,8 @@
 # src-guard · `experimental-update`
 
-> ⚠️ This branch is under active development. For the stable release, see [`main`](../../tree/main).
+> ⚠️ This branch WAS under active development. It has now been overwritten with the all-new 2.0 experimental version.
+> For the new experimental version, see [`experimental-update`](../../tree/experimental-update)
+> For the stable release, see [`main`](../../tree/main).
 
 A Python CLI tool that recursively audits source code directories for security vulnerabilities and auto-generates documentation overviews. Drop it at the root of any project and get a clean Markdown report in seconds.
 
