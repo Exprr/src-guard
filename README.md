@@ -1,6 +1,6 @@
 # src-guard
 
-A Python CLI tool that recursively audits source code directories for security vulnerabilities and auto-generates documentation overviews. Point it at any project folder and get a clean Markdown report.
+A Python CLI tool that recursively audits source code directories for security vulnerabilities and auto-generates documentation overviews. Point it at any project folder and get a clean Markdown report. This is the stable release, to check out the newer, experimental version, [Check out the development branch](https://github.com/Exprr/src-guard/tree/experimental-update).
 
 ```
 $ python audit.py ./my-project
