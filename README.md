@@ -20,7 +20,7 @@
 ```bash
 git clone https://github.com/Exprr/src-guard.git
 cd src-guard
-pip install .
+pipx install .
 ```
 
 Requires Python 3.10+.
