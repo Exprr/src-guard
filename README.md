@@ -1,46 +1,66 @@
 # src-guard
-High-performance CLI tool for automated source code documentation and security auditing. Features recursive directory traversal, regex-based vulnerability scanning (secrets, eval, insecure shell), and Markdown report generation. Optimized for Linux environments with memory safety caps and pre-compiled regex engines.
 
-# src-guard: CLI Source Audit & Auto-Doc
+A Python CLI tool that recursively audits source code directories for security vulnerabilities and auto-generates documentation overviews. Point it at any project folder and get a clean Markdown report.
 
-A high-performance Python CLI tool designed to recursively audit source code directories. It automatically generates documentation overviews and scans for critical security vulnerabilities like hardcoded secrets and insecure shell execution.
+```
+$ python audit.py ./my-project
 
-## 🚀 Key Features
+Initiating Deep Audit...
+[Scanning] src/auth.py...
 
-* **Recursive Documentation:** Automatically extracts module-level docstrings and leading comments from `.py`, `.js`, and `.sh` files.
-* **Security Auditing:** Uses optimized Regex engines to detect:
-    * Hardcoded API Keys, Secrets, and Tokens.
-    * Insecure `eval()` calls.
-    * Multiline Shell Execution bypasses (e.g., `shell=True` in subprocess).
-* **Performance Optimized:** * Pre-compiled global regex patterns for high-speed scanning.
-    * Safety caps for large files (>10MB) to prevent memory exhaustion.
-* **Professional Reporting:** Generates a clean Markdown report (`FINAL_AUDIT.md`) for easy review.
+Audit Summary:
+  .py: 18 files
+  .js: 4 files
+  .sh: 2 files
 
-## 🛠️ Installation & Usage
+Done! Report saved to FINAL_AUDIT.md
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Exprrr/src-guard.git](https://github.com/Exprrr/src-scan.git)
-   cd src-guard
+---
 
-2. **Run a scan:**
-Point the tool at any project directory:
-    ```bash
-    python audit.py /path/to/your/project
+## Features
 
-3. **Check the results:**
-Open the generated FINAL_AUDIT.md to see the documentation summary and risk levels.
+**Security auditing**
+Scans `.py`, `.js`, and `.sh` files for common vulnerabilities using pre-compiled regex patterns:
 
-## 🧪 Technical Details
+- Hardcoded API keys, secrets, and tokens
+- Insecure `subprocess.Popen` calls with `shell=True`
+- Dynamic `eval()` usage
 
-This project was developed over several months as part of a Linux and Python fundamentals track. Key technical challenges addressed include:
+**Documentation extraction**
+Reads module-level docstrings and leading comments from each file and includes a short summary in the report. Handles multi-line docstrings and respects URL slashes in comments.
 
-    Regex Greediness: Implementing non-greedy matching to prevent catastrophic backtracking.
+**Performance**
+All regex patterns are compiled once at module startup rather than per-file. Files over 10 MB are skipped automatically to prevent memory issues.
 
-    Multiline Support: Utilizing re.DOTALL flags to catch vulnerabilities spread across multiple lines.
+**Markdown report**
+Results are written to `FINAL_AUDIT.md` with a per-file breakdown showing what was found and on which line.
 
-    Resource Management: Implementing chunked reading and file size validation for system stability.
+---
 
-📄 License
+## Installation
 
-[GNU 3.0](LICENSE)
+No dependencies beyond the Python standard library.
+
+```bash
+git clone https://github.com/Exprr/src-guard.git
+cd src-guard
+```
+
+---
+
+## Usage
+
+```bash
+# Audit a directory, output to default FINAL_AUDIT.md
+python audit.py /path/to/project
+
+# Specify a custom report name
+python audit.py /path/to/project -o my_report.md
+```
+
+---
+
+## License
+
+[GNU GPL v3.0](LICENSE)
