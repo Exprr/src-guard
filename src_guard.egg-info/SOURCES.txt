@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src_guard/__init__.py
+src_guard/cli.py
+src_guard/models.py
+src_guard/reporter.py
+src_guard/rules.py
+src_guard/scanner.py
+src_guard.egg-info/PKG-INFO
+src_guard.egg-info/SOURCES.txt
+src_guard.egg-info/dependency_links.txt
+src_guard.egg-info/entry_points.txt
+src_guard.egg-info/requires.txt
+src_guard.egg-info/top_level.txt
+tests/test_scanner.py

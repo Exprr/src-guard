@@ -1,0 +1,2 @@
+[console_scripts]
+src-guard = src_guard.cli:main
