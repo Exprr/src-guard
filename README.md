@@ -31,9 +31,13 @@ Requires Python 3.10+.
 ```bash
 # Audit current directory
 src-guard .
+```
 
-if it says command not found, run "pipx ensurepath", and if this gives you "/home/yourusername/.local/bin is already in PATH." but "src-guard ." still gives you an error, run "pipx ensurepath --force"
+Note: If your terminal returns src-guard: command not found after installation, 
+run pipx ensurepath to update your system's PATH. 
+If the issue persists, force the PATH update by running pipx ensurepath --force and restart your terminal.
 
+```
 # Custom report name and JSON format
 src-guard ./my-project -o report.json -f json
 ```
